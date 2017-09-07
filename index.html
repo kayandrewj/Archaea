@@ -6,7 +6,34 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
   </head>
   <body>
-    <canvas id="network" width="800" height="900"></canvas>
+    <form>
+      <input placeholder="search">
+    </form>
+    <canvas id="network"></canvas>
+
+    <script>
+
+    (function() {
+      let canvas = document.getElementById("network");
+      ctx = canvas.getContext('2d');
+      watchWindow();
+
+      function render() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+        console.log(canvas.width, canvas.height);
+      }
+
+      function watchWindow() {
+        window.addEventListener("resize", render, false);
+        render();
+      }
+
+    })();
+
+    </script>
+
     <script src="./graph.js"></script>
 
   </body>

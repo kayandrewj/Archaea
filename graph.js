@@ -3,9 +3,12 @@ const canvas = d3.select("#network"),
   height = canvas.attr("height"),
   r = 6;
   ctx = canvas.node().getContext("2d"),
+
   simulation = d3.forceSimulation()
-    .force("x", d3.forceX(width/2))
-    .force("y", d3.forceY(height/2))
+    .force("x", d3.forceX(width/2)
+      .strength(1))
+    .force("y", d3.forceY(height/2)
+      .strength(1))
     .force("collide", d3.forceCollide(r))
     .force("charge", d3.forceManyBody()
       .strength(-72))
@@ -29,7 +32,14 @@ d3.json("data.json", function(err, graph) {
       .on("end", dragEnded));
 
   function update() {
-    ctx.clearRect(0, 0, width, height);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    simulation
+      .force("x", d3.forceX(canvas.width/2))
+      .force("y", d3.forceY(canvas.height/2));
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.beginPath();
     ctx.globalAlpha = 0.5;
@@ -63,6 +73,7 @@ d3.json("data.json", function(err, graph) {
 
 
 function dragStarted() {
+  console.log(d3.event.subject.name);
   if (!d3.event.active)
   simulation.alphaTarget(0.3).restart();
   d3.event.subject.fx = d3.event.subject.x;
