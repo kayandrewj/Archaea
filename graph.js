@@ -88,15 +88,12 @@ function dragged() {
   if (dragTimer === 25) {
     handleSearch(d3.event.subject.name);
   }
-
   d3.event.subject.fx = d3.event.x;
   d3.event.subject.fy = d3.event.y;
 }
 
 function dragEnded() {
   if (!d3.event.active) simulation.alphaTarget(0);
-
-
   d3.event.subject.fx = null;
   d3.event.subject.fy = null;
 }
