@@ -7,7 +7,7 @@ function handleSearch(query) {
 
 function storeLinks(links) {
   linksArr = links.parse.links;
-  mapArticlesToNodes();
+  parseJSON();
 }
 
 function storeParent(json) {
