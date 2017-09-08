@@ -73,7 +73,6 @@ d3.json("data.json", function(err, graph) {
 
 
 function dragStarted() {
-  console.log(d3.event.subject.name);
   if (!d3.event.active)
   simulation.alphaTarget(0.3).restart();
   d3.event.subject.fx = d3.event.subject.x;
