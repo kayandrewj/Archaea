@@ -1,3 +1,5 @@
+let dragTimer = 0;
+
 const canvas = d3.select("#network"),
   width = canvas.attr("width"),
   height = canvas.attr("height"),
@@ -12,7 +14,7 @@ const canvas = d3.select("#network"),
     .force("collide", d3.forceCollide(r))
     .force("charge", d3.forceManyBody()
       .strength(-72))
-    .force("link", d3.forceLink())
+    .force("link", d3.forceLink());
 
 d3.json("data.json", function(err, graph) {
   if (err) throw err;
@@ -60,7 +62,7 @@ d3.json("data.json", function(err, graph) {
   function drawNode(d) {
     ctx.beginPath();
 
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "green";
     ctx.moveTo(d.x, d.y);
     ctx.arc(d.x, d.y, r, 0, 2*Math.PI);
     ctx.fill();
@@ -73,6 +75,8 @@ d3.json("data.json", function(err, graph) {
 
 
 function dragStarted() {
+  console.log(d3.event.subject.name);
+  dragTimer = 0;
   if (!d3.event.active)
   simulation.alphaTarget(0.3).restart();
   d3.event.subject.fx = d3.event.subject.x;
@@ -80,12 +84,18 @@ function dragStarted() {
 }
 
 function dragged() {
+  dragTimer += 1;
+  if (dragTimer === 25) {
+    handleSearch(d3.event.subject.name);
+  }
+
   d3.event.subject.fx = d3.event.x;
   d3.event.subject.fy = d3.event.y;
 }
 
 function dragEnded() {
   if (!d3.event.active) simulation.alphaTarget(0);
+
 
   d3.event.subject.fx = null;
   d3.event.subject.fy = null;
