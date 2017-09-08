@@ -1,21 +1,36 @@
 let links = [];
 let parentNode = {};
 let nodes = [];
-
 let nodeIndex = {};
+
+let dataGraph = {
+  nodes: nodes,
+  links: links,
+};
 
 function parseJSON() {
   if (!parentNode.name) {
     parentNode = {
       name: parentObj.parse.title,
       depth: 0
+      };
+    } else {
+      parentNode = {
+        name: parentObj.parse.title,
+        depth: parentNode.depth += 1,
     };
   }
+
 
   parseArticlesToNodes();
   parseNodesToLinks();
   console.log(nodes);
   console.log(links);
+  dataGraph = {
+    nodes: nodes,
+    links: links,
+  };
+  console.log(dataGraph);
 }
 
 function parseArticlesToNodes() {
@@ -35,10 +50,10 @@ function parseArticlesToNodes() {
 }
 
 function parseNodesToLinks() {
-  nodes.forEach(node => {
+  linksArr.forEach(node => {
     let link = {
       source: parentNode.name,
-      target: node.name,
+      target: node['*'],
     };
     links.push(link);
   });
