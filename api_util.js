@@ -1,6 +1,5 @@
 let parentObj = {};
 let linksArr = [];
-let linksGraph = {};
 
 function handleSearch(query) {
   getSections(buildSectionUrl(query), prepareGetLinks);
@@ -8,7 +7,7 @@ function handleSearch(query) {
 
 function storeLinks(links) {
   linksArr = links.parse.links;
-  debugger
+  mapArticlesToNodes();
 }
 
 function storeParent(json) {
@@ -46,5 +45,4 @@ function getLinks(url) {
     url: url,
     dataType: 'jsonp',
   }).then(links => storeLinks(links));
-
 }
