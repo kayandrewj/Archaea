@@ -21,7 +21,6 @@ function parseJSON() {
     };
   }
 
-
   parseArticlesToNodes();
   parseNodesToLinks();
   console.log(nodes);
