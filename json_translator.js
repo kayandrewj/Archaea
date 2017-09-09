@@ -2,6 +2,7 @@ let links = [];
 let parentNode = {};
 let nodes = [];
 let nodeIndex = {};
+let preparedGraph;
 
 let dataGraph = {
   nodes: nodes,
@@ -21,6 +22,12 @@ function parseJSON() {
     };
   }
 
+  if (!(parentNode.name in nodeIndex)) {
+    nodes.push(parentNode);
+  }
+
+  nodeIndex[parentNode.name] = true;
+
   parseArticlesToNodes();
   parseNodesToLinks();
   console.log(nodes);
@@ -29,7 +36,7 @@ function parseJSON() {
     nodes: nodes,
     links: links,
   };
-  console.log(dataGraph);
+  data(dataGraph);
 }
 
 function parseArticlesToNodes() {
