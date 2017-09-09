@@ -31,8 +31,6 @@ function parseJSON() {
 
   parseArticlesToNodes();
   parseNodesToLinks();
-  console.log(nodes);
-  console.log(links);
   dataGraph = {
     nodes: nodes,
     links: links,

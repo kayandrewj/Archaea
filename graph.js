@@ -4,7 +4,7 @@ const canvas = d3.select("#network"),
   width = canvas.attr("width"),
   height = canvas.attr("height"),
   r = 6,
-  color = d3.scaleOrdinal(d3.schemeCategory20),
+  color = d3.scaleOrdinal(d3.schemeCategory20c),
   ctx = canvas.node().getContext("2d");
 
    simulation = d3.forceSimulation()
@@ -14,9 +14,12 @@ const canvas = d3.select("#network"),
       .strength(1))
     .force("collide", d3.forceCollide(r+3))
     .force("charge", d3.forceManyBody()
-      .strength(-125))
+      .strength(-50))
+    .force("linkStrength", d3.forceLink()
+      .strength(50))
     .force("link", d3.forceLink()
       .id(function(d) { return d.name; }));
+
 
 function data(graph) {
    simulation
@@ -56,7 +59,6 @@ function data(graph) {
   function dragSubject() {
     return simulation.find(d3.event.x, d3.event.y);
   }
-
 }
 
   function drawNode(d) {
@@ -72,6 +74,10 @@ function data(graph) {
     ctx.lineTo(l.target.x, l.target.y);
   }
 
+  function showTitle() {
+    console.log(d3.event.subject.name);
+  }
+
 
   function dragStarted() {
     console.log(d3.event.subject.name);
@@ -84,7 +90,7 @@ function data(graph) {
 
   function dragged() {
     dragTimer += 1;
-    if (dragTimer === 18) {
+    if (dragTimer === 8) {
       handleSearch(d3.event.subject.name);
     }
 
