@@ -18,7 +18,6 @@ const canvas = d3.select("#network"),
     .force("link", d3.forceLink()
       .id(function(d) { return d.name; }));
 
-
 function data(graph) {
    simulation
     .nodes(graph.nodes)

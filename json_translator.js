@@ -16,9 +16,10 @@ function parseJSON() {
       depth: 0
       };
     } else {
+      thisDepth = parentNode.depth;
       parentNode = {
         name: parentObj.parse.title,
-        depth: parentNode.depth += 1,
+        depth: thisDepth += 1,
     };
   }
 
