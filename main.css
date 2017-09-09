@@ -1,0 +1,23 @@
+p {
+  padding-top: 17px;
+  position: absolute;
+  z-index: 4;
+  font-family: sans-serif;
+  font-size: 12px;
+  margin: 0;
+}
+
+p:nth-child(2) {
+  padding-top: 60px;
+}
+
+p:nth-child(3) {
+  padding-top: 30px;
+}
+
+form {
+  position: fixed;
+  z-index: 5;
+  font-family: sans-serif;
+  font-size: 14px;
+}
