@@ -8,12 +8,19 @@
     <script src="https://cdn.rawgit.com/jgallen23/jquery-builder/0.7.0/dist/1.11.1/jquery-css-deprecated-dimensions-effects-event-alias-offset-wrap.min.js"></script>
   </head>
   <body>
-    <form id="searchform">Search anything to begin a new tree. Pull a branch to sprout new nodes.
-      <input placeholder="search">
+    <form id="searchform">
+      <input placeholder="Search">
     </form>
-    <p id="article"></p>
-    <p>If the tree doesn't appear, click in the center of the window.</p>
-    <p>If new nodes don't sprout, you've hit the end of that branch!</p>
+
+    <div id="article-prev">
+      <span id="article-prev-title">How to Use Archaea</span>
+      <div id="article-prev-text">
+        Search for anything or click the demo button. Then pull nodes to grow the article tree. If new nodes don't sprout, you've reached the end of that branch!
+
+      </div>
+    </div>
+
+
 
     <canvas id="network"></canvas>
 

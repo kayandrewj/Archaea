@@ -21,3 +21,62 @@ form {
   font-family: sans-serif;
   font-size: 14px;
 }
+
+#article-prev {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: 1px solid lightblue;
+  padding: 13px;
+  font-family: sans-serif;
+  width: 300px;
+  border-radius: 13px;
+  height: 400px;
+  margin: 5px;
+  background-color: rgba(230,230,230,0.5);
+  overflow-y: hidden;
+}
+
+
+#article-prev-title {
+  font-weight: 100;
+  color: #363636;
+  font-size: 25px;
+  padding-bottom: 8px;
+  min-height: 30px;
+  padding-top: 10px;
+  margin-top: -13px;
+}
+
+#article-prev-text {
+  line-height: 22px;
+  font-size: 14px;
+  text-align: justify;
+  padding-top: 11px;
+  margin-top: 7px;
+  height: 366px;
+  overflow: scroll;
+  width: 300px;
+}
+
+#network {
+  background-color: whitesmoke;
+}
+
+#article-prev-text::-webkit-scrollbar {
+    display: none;
+}
+
+input {
+  position: fixed;
+  z-index: 5;
+  width: 300px;
+  height: 29px;
+  border: 1px solid lightblue;
+  border-radius: 10px;
+  background-color: rgba(230,230,230,0.5);
+  font-size: 17px;
+  padding: 3px;
+  padding-left: 8px;
+  font-weight: 100;
+}

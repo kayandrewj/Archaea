@@ -46,3 +46,16 @@ function getLinks(url) {
     dataType: 'jsonp',
   }).then(links => storeLinks(links));
 }
+
+function getArticlePreview(title) {
+  $.ajax({
+    url: `https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=${title}`,
+    dataType: 'jsonp',
+  }).then(result => injectArticlePreview(result));
+}
+
+function injectArticlePreview(result) {
+  let pagesJsonKey = Object.keys(result.query.pages)[0];
+  document.getElementById('article-prev-title').innerHTML = result.query.pages[pagesJsonKey].title;
+  document.getElementById('article-prev-text').innerHTML = result.query.pages[pagesJsonKey].extract;
+}

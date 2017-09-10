@@ -80,7 +80,7 @@ function data(graph) {
 
 
   function dragStarted() {
-    document.getElementById('article').innerHTML = d3.event.subject.name;
+    getArticlePreview(d3.event.subject.name);
     dragTimer = 0;
     if (!d3.event.active)
     simulation.alphaTarget(0.3).restart();
