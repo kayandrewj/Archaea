@@ -40,12 +40,18 @@ function getSections(url, callback) {
 
 function prepareGetLinks(json) {
   storeParent(json);
-  let sectionArr = json.parse.sections;
-  sectionArr.forEach((obj) => {
-    if (obj.anchor === "See_also") {
-      getLinks(buildLinksUrl(parseInt(obj.index)));
-    }
-  });
+  debugger
+  if (json.parse) {
+    document.getElementById("retry").innerHTML = "";
+    let sectionArr = json.parse.sections;
+    sectionArr.forEach((obj) => {
+      if (obj.anchor === "See_also") {
+        getLinks(buildLinksUrl(parseInt(obj.index)));
+      }
+    });
+  } else {
+    document.getElementById("retry").innerHTML = "That article doesn't have enough related links.";
+  }
 }
 
 function buildLinksUrl(index) {
