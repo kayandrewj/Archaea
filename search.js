@@ -6,5 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.getElementById('reset').onclick = () => {
+    links = [];
+    parentNode = {};
+    nodes = [];
+    nodeIndex = {};
+    parentObj = {};
+    linksArr = [];
+
+    dataGraph = {
+      nodes: [],
+      links: [],
+    };
+    data(dataGraph);
+    console.log("clicked");
   };
+
 });
