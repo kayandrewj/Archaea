@@ -1,5 +1,17 @@
 let parentObj = {};
 let linksArr = [];
+let index = 0;
+
+function graphDemo() {
+  handleSearch("planet");
+
+  setTimeout(function() {
+  while(index < 100) {
+    handleDemoSearch(dataGraph.nodes[index].title);
+    index++;
+    }
+  }, 1000);
+}
 
 function handleSearch(query) {
   getSections(buildSectionUrl(query), prepareGetLinks);
