@@ -149,3 +149,28 @@ a:hover {
   margin-left: 87px;
   width: 71px;
 }
+
+.header {
+  font-family: "Assistant", sans-serif;
+  position: absolute;
+  font-size: 42px;
+  padding: 0;
+  margin: 0;
+  margin-top: -15px;
+  color: #363636;
+  font-weight: 200;
+}
+
+.nav {
+  margin-left: 195px;
+  margin-top: 14px;
+}
+
+.tagline {
+  font-family: "Assistant", sans-serif;
+  position: absolute;
+  font-size: 12px;
+  margin-top: 33px;
+  font-weight: 400;
+  color: #363636;
+}
