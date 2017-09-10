@@ -2,7 +2,7 @@ p {
   padding-top: 17px;
   position: absolute;
   z-index: 4;
-  font-family: sans-serif;
+  font-family: 'Assistant', sans-serif;;
   font-size: 12px;
   margin: 0;
 }
@@ -18,7 +18,7 @@ p:nth-child(3) {
 form {
   position: fixed;
   z-index: 5;
-  font-family: sans-serif;
+  font-family: 'Assistant', sans-serif;;
   font-size: 14px;
 }
 
@@ -28,18 +28,19 @@ form {
   right: 0;
   border: 1px solid lightblue;
   padding: 13px;
-  font-family: sans-serif;
+  font-family: 'Assistant', sans-serif;;
   width: 300px;
   border-radius: 13px;
   height: 400px;
   margin: 5px;
   background-color: rgba(230,230,230,0.5);
   overflow-y: hidden;
+  margin: 11px;
 }
 
 
 #article-prev-title {
-  font-weight: 100;
+  font-weight: 300;
   color: #363636;
   font-size: 25px;
   padding-bottom: 8px;
@@ -50,7 +51,7 @@ form {
 
 #article-prev-text {
   line-height: 22px;
-  font-size: 14px;
+  font-size: 15px;
   text-align: justify;
   padding-top: 11px;
   margin-top: 7px;
@@ -60,7 +61,11 @@ form {
 }
 
 #network {
-  background-color: whitesmoke;
+  background-color: #F5F7F2;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
 }
 
 #article-prev-text::-webkit-scrollbar {
@@ -78,5 +83,69 @@ input {
   font-size: 17px;
   padding: 3px;
   padding-left: 8px;
-  font-weight: 100;
+  font-weight: 300;
+  font-family: "Assistant", sans-serif;
+}
+
+input:focus {
+  outline: none;
+  background-color: rgba(230, 230, 230, 0.99);
+}
+
+#reset {
+  margin-left: 320px;
+  height: 37px;
+  position: fixed;
+  background-color: rgba(230, 230, 230, 0.5);
+  border: none;
+  border: 1px solid lightblue;
+  font-size: 17px;
+  font-weight: 300;
+  border-radius: 10px;
+  padding: 3px;
+  width: 72px;
+  color: #363636;
+  font-family: "Assistant", sans-serif;
+
+}
+
+#reset:hover {
+  background-color: rgba(230, 230, 230, 0.99);
+  cursor: pointer;
+}
+
+#reset:focus {
+  outline: none;
+}
+
+.social {
+  margin-left: 402px;
+}
+
+a {
+  height: 24px;
+  position: fixed;
+  background-color: rgba(230, 230, 230, 0.5);
+  border: none;
+  border: 1px solid lightblue;
+  font-size: 17px;
+  font-weight: 300;
+  border-radius: 10px;
+  padding: 3px;
+  width: 59px;
+  color: #363636;
+  padding-left: 16px;
+  padding-top: 8px;
+  text-decoration: none;
+  font-family: 'Assistant', sans-serif;
+}
+
+a:hover {
+  background-color: rgba(230, 230, 230, 0.99);
+  cursor: pointer;
+}
+
+.fa-linkedin {
+  margin-left: 87px;
+  width: 71px;
 }
