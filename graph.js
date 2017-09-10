@@ -4,14 +4,14 @@ const canvas = d3.select("#network"),
   width = canvas.attr("width"),
   height = canvas.attr("height"),
   r = 6,
-  color = d3.scaleOrdinal(d3.schemeCategory20c),
+  color = d3.scaleOrdinal(d3.schemeCategory10),
   ctx = canvas.node().getContext("2d");
 
    simulation = d3.forceSimulation()
     .force("x", d3.forceX(width/2)
-       .strength(1))
+       .strength(25))
     .force("y", d3.forceY(height/2)
-      .strength(1))
+      .strength(25))
     .force("collide", d3.forceCollide(r+3))
     .force("charge", d3.forceManyBody()
       .strength(-50))
