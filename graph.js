@@ -81,6 +81,13 @@ function data(graph) {
 
   function dragStarted() {
     getArticlePreview(d3.event.subject.name);
+    let articleLink = null;
+    let drawArticleLink = () => {
+      ctx.moveTo(d3.event.subject.x, d3.event.subject.y);
+      ctx.lineTo(0, 0);
+    };
+    drawArticleLink();
+
     dragTimer = 0;
     if (!d3.event.active)
     simulation.alphaTarget(0.3).restart();
