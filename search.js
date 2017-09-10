@@ -4,4 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     handleSearch(e.target["0"].value);
   });
+
+  document.getElementById('reset').onclick = () => {
+  };
 });
