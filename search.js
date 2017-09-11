@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     data(dataGraph);
     document.getElementById('article-prev-title').innerHTML = "How to use Archaea";
     document.getElementById('article-prev-text').innerHTML = "Search for anything or click the demo button. Then pull nodes to grow the article tree. If new nodes don't sprout, you've reached the end of that branch!";
+
+    document.getElementById('article-link').href = `https://github.com/kayandrewj/Archaea/blob/master/README.md`;
+
   };
 
 });
