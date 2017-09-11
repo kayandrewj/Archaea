@@ -40,7 +40,6 @@ function getSections(url, callback) {
 
 function prepareGetLinks(json) {
   storeParent(json);
-  debugger
   if (json.parse) {
     document.getElementById("retry").innerHTML = "";
     let sectionArr = json.parse.sections;
@@ -76,4 +75,9 @@ function injectArticlePreview(result) {
   let pagesJsonKey = Object.keys(result.query.pages)[0];
   document.getElementById('article-prev-title').innerHTML = result.query.pages[pagesJsonKey].title;
   document.getElementById('article-prev-text').innerHTML = result.query.pages[pagesJsonKey].extract;
+
+
+  document.getElementById('article-link').href = "";
+  let outLink = `https://en.wikipedia.org/wiki/${result.query.pages[pagesJsonKey].title}`;
+  document.getElementById('article-link').href = outLink;
 }
