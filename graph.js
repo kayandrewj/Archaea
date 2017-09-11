@@ -8,6 +8,7 @@ const canvas = d3.select("#network"),
   ctx = canvas.node().getContext("2d");
 
    simulation = d3.forceSimulation()
+    .force('g', d3.forceManyBody(width / 2, height / 2))
     .force("x", d3.forceX(width/2)
        .strength(25))
     .force("y", d3.forceY(height/2)
@@ -46,8 +47,8 @@ function data(graph) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     ctx.beginPath();
-    ctx.globalAlpha = 0.5;
-    ctx.strokeStyle = "#ccc";
+    ctx.globalAlpha = 0.4;
+    ctx.strokeStyle = "#363636";
     graph.links.forEach(drawLink);
     ctx.stroke();
 
