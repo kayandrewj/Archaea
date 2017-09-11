@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
+  <meta property="og:image" content="/images/linkpreview.png">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="200">
+  <meta property="og:image:height" content="200">
+
   <head>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css?family=Assistant:200,300,400" rel="stylesheet">
     <meta charset="utf-8">
@@ -23,13 +29,17 @@
     <p id="retry"></p>
     <button id="reset" type="button" name="button">Reset</button>
     <div class="social">
-      <a href="https://www.linkedin.com/in/kayandrewj/" class="icon fa-linkedin alt">Linkedin</a>
-      <a href="https://www.github.com/kayandrewj/" class="icon fa-github alt">Github</a>
+      <a target="_blank" href="https://www.linkedin.com/in/kayandrewj/" class="icon fa-linkedin alt">Linkedin</a>
+      <a target="_blank" href="https://www.github.com/kayandrewj/" class="icon fa-github alt">Github</a>
     </div>
   </div>
 
     <div id="article-prev">
-      <span id="article-prev-title">How to Use Archaea</span>
+      <a target="_blank" id="article-link" href="https://github.com/kayandrewj/Archaea/blob/master/README.md">
+        <span id="article-prev-title">How to Use Archaea</span>
+      </a>
+
+      <span id="parent-line"></span>
       <div id="article-prev-text">
         Search for anything or click the demo button. Then pull nodes to grow the article tree. If new nodes don't sprout, you've reached the end of that branch!
 
