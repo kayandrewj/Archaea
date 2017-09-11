@@ -44,7 +44,7 @@ form {
   color: #363636;
   font-size: 25px;
   padding-bottom: 8px;
-  min-height: 30px;
+  height: auto;
   padding-top: 10px;
   margin-top: -13px;
 }
@@ -53,9 +53,9 @@ form {
   line-height: 22px;
   font-size: 15px;
   text-align: justify;
-  padding-top: 11px;
-  margin-top: 7px;
+  padding-top: 1px;
   height: 366px;
+  margin-top: 73px;
   overflow: scroll;
   width: 300px;
 }
@@ -159,11 +159,19 @@ a:hover {
   margin-top: -15px;
   color: #363636;
   font-weight: 200;
+  background-color: rgba(245, 247, 242, 0.9);
+  box-shadow: -8px 0px 8px 12px rgba(245,247,242,0.9);
 }
 
 .nav {
   margin-left: 195px;
-  margin-top: 14px;
+  margin-top: 5px;
+  width: 581px;
+  position: absolute;
+  z-index: 1;
+  height: 37px;
+  background-color: rgba(245, 247, 242, 0.9);
+  box-shadow: 4px 2px 8px 12px rgba(245,247,242,0.9);
 }
 
 .tagline {
@@ -173,4 +181,37 @@ a:hover {
   margin-top: 33px;
   font-weight: 400;
   color: #363636;
+}
+
+#retry {
+  margin-top: -24px;
+  margin-left: 43px;
+  font-size: 11px;
+  color: maroon;
+}
+
+#article-link {
+  width: 300px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  border: 13px solid rgba(237,238,236,0.2);
+  text-decoration: underline;
+  text-decoration-color: #363636;
+  font-weight: 300;
+  background-color: rgba(237,238,236,0.7);
+  border-radius: 0;
+  box-shadow: 0px 8px 11px 5px rgba(237,238,236,0.7);
+  padding-bottom: 2px;
+  padding-top: 0px;
+  border-bottom: none;
+  border-radius: 13px;
+  margin-top: -13px;
+  margin-left: -13px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#article-link:hover {
+  text-decoration: underline;
 }
