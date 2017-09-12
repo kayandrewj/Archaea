@@ -21,10 +21,11 @@ const canvas = d3.select("#network"),
       .id(function(d) { return d.name; }));
 
 function data(graph) {
-   simulation
-    .nodes(graph.nodes)
-    .on("tick", update)
-    .force("link")
+    update();
+    simulation
+      .nodes(graph.nodes)
+      .on("tick", update)
+      .force("link")
       .links(graph.links);
     canvas
       .call(d3.drag()
@@ -34,9 +35,10 @@ function data(graph) {
         .on("drag", dragged)
         .on("end", dragEnded));
 
-    function update() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+  function update() {
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
     simulation
       .force("center", d3.forceCenter(width/2, height/2))
@@ -59,6 +61,7 @@ function data(graph) {
   function dragSubject() {
     return simulation.find(d3.event.x, d3.event.y);
   }
+
 }
 
   function drawNode(d) {
