@@ -8,7 +8,11 @@ function handleSearch(query) {
 
 function storeLinks(links) {
   linksArr = links.parse.links;
-  parseJSON();
+  if (linksArr.length > 0) {
+    parseJSON();
+  } else {
+    handleEmpty();
+  }
 }
 
 function storeParent(json) {
@@ -51,6 +55,10 @@ function getLinks(url) {
     url: url,
     dataType: 'jsonp',
   }).then(links => storeLinks(links));
+}
+
+function handleEmpty() {
+  document.getElementById("retry").innerHTML = "That article doesn't have enough related links.";
 }
 
 function getArticlePreview(title) {
