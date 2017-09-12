@@ -12,6 +12,7 @@ function storeLinks(links) {
     parseJSON();
   } else {
     handleEmpty();
+    return;
   }
 }
 
@@ -59,6 +60,7 @@ function getLinks(url) {
 
 function handleEmpty() {
   document.getElementById("retry").innerHTML = "That article doesn't have enough related links.";
+  return;
 }
 
 function getArticlePreview(title) {
