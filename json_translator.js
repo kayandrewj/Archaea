@@ -35,7 +35,13 @@ function parseJSON() {
     nodes: nodes,
     links: links,
   };
-  data(dataGraph);
+
+  if (dataGraph.nodes.length === 0 || dataGraph.links.length === 0) {
+    resetAfterBadSearch();
+  } else {
+    data(dataGraph);
+  }
+
 }
 
 function parseArticlesToNodes() {
@@ -62,4 +68,23 @@ function parseNodesToLinks() {
     };
     links.push(link);
   });
+}
+
+function reset() {
+  links = [];
+  parentNode = {};
+  nodes = [];
+  nodeIndex = {};
+  parentObj = {};
+  linksArr = [];
+
+  dataGraph = {
+    nodes: [],
+    links: [],
+  };
+  data(dataGraph);
+  document.getElementById('article-prev-title').innerHTML = "How to Use Archaea";
+  document.getElementById('article-prev-text').innerHTML = "Search for anything. Then pull nodes to grow the article tree. If new nodes don't sprout, you've reached the end of that branch!<br></br>NB: Because Wikipedia can be edited by anyone, not all articles are capable of being algorithmically parsed. If links don't appear, it's possible that the section from which they are usually sourced is mislabeled or missing.";
+
+  document.getElementById('article-link').href = `https://github.com/kayandrewj/Archaea/blob/master/README.md`;
 }
