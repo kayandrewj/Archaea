@@ -215,3 +215,24 @@ a:hover {
 #article-link:hover {
   text-decoration: underline;
 }
+
+.demo {
+  outline: none;
+  border: none;
+  background: transparent;
+  text-decoration: underline;
+  color: #757575;
+  font-family: "Assistant", sans-serif;
+  font-size: 17px;
+  position: absolute;
+  z-index: 7;
+  margin-left: 256px;
+  margin-top: 7px;
+  font-weight: 300;
+  text-decoration-color: #757575;
+}
+
+.demo:hover {
+  color: #363636;
+  cursor: pointer;
+}

@@ -2,7 +2,6 @@
 <html
     xmlns="http://www.w3.org/1999/xhtml"
     xmlns:fb="http://ogp.me/ns/fb#">
-
   <meta property="og:image" content="/images/linkpreview.png">
   <meta property="og:image:type" content="image/jpeg">
 
@@ -15,72 +14,66 @@
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="https://cdn.rawgit.com/jgallen23/jquery-builder/0.7.0/dist/1.11.1/jquery-css-deprecated-dimensions-effects-event-alias-offset-wrap.min.js"></script>
   </head>
+
   <body>
+
     <div class="header">
       A r c h a e a
     </div>
+
     <div class="tagline">
       A Wikipedia visualizer by Andrew Kay
     </div>
 
-  <div class="nav">
-    <form id="searchform">
-      <input placeholder="Search Wikipedia">
-    </form>
-    <p id="retry"></p>
-    <button id="reset" type="button" name="button">Reset</button>
-    <div class="social">
-      <a target="_blank" href="https://www.linkedin.com/in/kayandrewj/" class="icon fa-linkedin alt">Linkedin</a>
-      <a target="_blank" href="https://www.github.com/kayandrewj/" class="icon fa-github alt">Github</a>
+    <div class="nav">
+      <form id="searchform">
+        <input placeholder="Search Wikipedia">
+      </form>
+      <p id="retry"></p>
+      <button type="button" id="demo" class="demo">Demo</button>
+      <button id="reset" type="button" name="button">Reset</button>
+      <div class="social">
+        <a target="_blank" href="https://www.linkedin.com/in/kayandrewj/" class="icon fa-linkedin alt">Linkedin</a>
+        <a target="_blank" href="https://www.github.com/kayandrewj/" class="icon fa-github alt">Github</a>
+      </div>
     </div>
-  </div>
 
     <div id="article-prev">
       <a target="_blank" id="article-link" href="https://github.com/kayandrewj/Archaea/blob/master/README.md">
         <span id="article-prev-title">How to Use Archaea</span>
       </a>
-
       <span id="parent-line"></span>
       <div id="article-prev-text">
         Search for anything. Then pull nodes to grow the article tree. If new nodes don't sprout, you've reached the end of that branch!<br></br>
 
         NB: Because Wikipedia can be edited by anyone, not all articles are capable of being algorithmically parsed. If links don't appear, it's possible that the section from which they are usually sourced is mislabeled or missing.
-
-
       </div>
     </div>
-
-
 
     <canvas id="network"></canvas>
 
     <script>
+      (function() {
+        let canvas = document.getElementById("network");
+        ctx = canvas.getContext('2d');
+        watchWindow();
 
-    (function() {
-      let canvas = document.getElementById("network");
-      ctx = canvas.getContext('2d');
-      watchWindow();
+        function render() {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
+        }
 
-      function render() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        ctx.clearRect(0, 0, canvas.width, canvas.height)
-      }
-
-      function watchWindow() {
-        window.addEventListener("resize", render, false);
-        render();
-      }
-
-    })();
-
+        function watchWindow() {
+          window.addEventListener("resize", render, false);
+          render();
+        }
+      })();
     </script>
-
     <script src="./api_util.js"></script>
     <script src="./json_translator.js"></script>
     <script src="./graph.js"></script>
     <script src="./search.js"></script>
-
 
   </body>
 </html>

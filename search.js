@@ -12,4 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('reset').onclick = () => {
     reset();
   };
+
+  document.getElementById('demo').onclick = () => {
+    Eve = "archaea";
+    handleSearch("archaea");
+    data(dataGraph);
+  };
+
+
 });
