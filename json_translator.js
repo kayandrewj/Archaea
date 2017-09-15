@@ -2,6 +2,7 @@ let links = [];
 let parentNode = {};
 let nodes = [];
 let nodeIndex = {};
+let linkIndex = {};
 let preparedGraph;
 
 let dataGraph = {
@@ -66,7 +67,10 @@ function parseNodesToLinks() {
       source: parentNode.name,
       target: node['*'],
     };
-    links.push(link);
+    if (!(`${link.target} to ${link.source}` in linkIndex)) {
+      links.push(link);
+    }
+    linkIndex[`${link.target} to ${link.source}`] = true;
   });
 }
 
