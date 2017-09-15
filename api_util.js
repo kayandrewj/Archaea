@@ -7,8 +7,8 @@ function handleSearch(query) {
 }
 
 function storeLinks(links) {
-  linksArr = links.parse.links;
-  if (linksArr.length > 0) {
+  if (links.parse) {
+    linksArr = links.parse.links;
     parseJSON();
   } else {
     handleEmpty();
