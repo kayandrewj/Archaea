@@ -80,11 +80,6 @@ function drawLink(l) {
   ctx.lineTo(l.target.x, l.target.y);
 }
 
-function showTitle() {
-  console.log(d3.event.subject.name);
-}
-
-
 function dragStarted() {
   getArticlePreview(d3.event.subject.name);
   let articleLink = null;

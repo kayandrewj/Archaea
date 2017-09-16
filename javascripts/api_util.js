@@ -5,8 +5,6 @@ let index = 0;
 function handleSearch(query) {
   document.getElementById("retry").innerHTML = "";
   document.getElementById('loading').setAttribute("style","width:5vw");
-
-
   getSections(buildSectionUrl(query), prepareGetLinks);
 }
 
