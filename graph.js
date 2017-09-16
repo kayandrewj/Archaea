@@ -36,7 +36,6 @@ function data(graph) {
         .on("end", dragEnded));
 
   function update() {
-
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 

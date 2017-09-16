@@ -1,7 +1,6 @@
 let Eve = "";
 
 document.addEventListener('DOMContentLoaded', () => {
-
   document.getElementById('searchform').addEventListener("submit", (e) => {
     e.preventDefault();
     Eve = e.target["0"].value;

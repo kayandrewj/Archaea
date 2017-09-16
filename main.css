@@ -236,3 +236,14 @@ a:hover {
   color: #363636;
   cursor: pointer;
 }
+
+#loading {
+  height: 7px;
+  background-color: lightblue;
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 0vw;
+  z-index: 10;
+  opacity: .7;
+}

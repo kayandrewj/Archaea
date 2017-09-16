@@ -11,6 +11,7 @@ let dataGraph = {
 };
 
 function parseJSON() {
+  document.getElementById('loading').setAttribute("style","width:80vw");
   if (!parentNode.name) {
     parentNode = {
       name: parentObj.parse.title,
@@ -38,14 +39,16 @@ function parseJSON() {
   };
 
   if (dataGraph.nodes.length === 0 || dataGraph.links.length === 0) {
-    resetAfterBadSearch();
+    handleEmpty();
+    reset();
   } else {
     data(dataGraph);
   }
-
+  document.getElementById('loading').setAttribute("style","width:0vw");
 }
 
 function parseArticlesToNodes() {
+  document.getElementById('loading').setAttribute("style","width:90vw");
   let articles = linksArr;
   let newNodes = [];
 
@@ -62,6 +65,7 @@ function parseArticlesToNodes() {
 }
 
 function parseNodesToLinks() {
+  document.getElementById('loading').setAttribute("style","width:100vw");
   linksArr.forEach(node => {
     let link = {
       source: parentNode.name,
@@ -81,6 +85,7 @@ function reset() {
   nodeIndex = {};
   parentObj = {};
   linksArr = [];
+  Eve = "";
 
   dataGraph = {
     nodes: [],
