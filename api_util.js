@@ -63,6 +63,7 @@ function getLinks(url) {
 }
 
 function handleEmpty() {
+  document.getElementById('loading').setAttribute("style","width:0vw");
   document.getElementById("retry").innerHTML = "That article doesn't have enough related links.";
   return;
 }

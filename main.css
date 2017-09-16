@@ -246,4 +246,6 @@ a:hover {
   width: 0vw;
   z-index: 10;
   opacity: .7;
+  transition: 100ms linear;
+  /*transition: 100ms ease;*/
 }

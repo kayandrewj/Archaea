@@ -44,7 +44,9 @@ function parseJSON() {
   } else {
     data(dataGraph);
   }
-  document.getElementById('loading').setAttribute("style","width:0vw");
+  setTimeout(() => {
+    document.getElementById('loading').setAttribute("style","width:0vw");
+  }, 300);
 }
 
 function parseArticlesToNodes() {
