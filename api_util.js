@@ -21,7 +21,7 @@ function storeParent(json) {
 }
 
 function buildSectionUrl(query) {
-  return `https://en.wikipedia.org/w/api.php?action=parse&format=json&prop=sections&page=${query}`;
+  return `https://en.wikipedia.org/w/api.php?action=parse&format=json&redirects=1&prop=sections&page=${query}`;
 }
 
 function getSections(url, callback) {
@@ -35,15 +35,9 @@ function getSections(url, callback) {
 function prepareGetLinks(json) {
   storeParent(json);
   if (json.parse) {
-    document.getElementById("retry").innerHTML = "";
-    let sectionArr = json.parse.sections;
-    sectionArr.forEach((obj) => {
-      if (obj.anchor === "See_also") {
-        getLinks(buildLinksUrl(parseInt(obj.index)));
-      }
-    });
+    getLinks(buildLinksUrl(0));
   } else {
-    document.getElementById("retry").innerHTML = "That article doesn't have enough related links.";
+    handleEmpty();
   }
 }
 
@@ -65,7 +59,7 @@ function handleEmpty() {
 
 function getArticlePreview(title) {
   $.ajax({
-    url: `https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&exintro=&explaintext=&titles=${title}`,
+    url: `https://en.wikipedia.org/w/api.php?format=json&redirects=1&action=query&prop=extracts&exintro=&explaintext=&titles=${title}`,
     dataType: 'jsonp',
   }).then(result => injectArticlePreview(result));
 }
@@ -73,8 +67,7 @@ function getArticlePreview(title) {
 function injectArticlePreview(result) {
   let pagesJsonKey = Object.keys(result.query.pages)[0];
   document.getElementById('article-prev-title').innerHTML = result.query.pages[pagesJsonKey].title;
-  document.getElementById('article-prev-text').innerHTML = result.query.pages[pagesJsonKey].extract;
-
+  document.getElementById('article-prev-text').innerHTML = result.query.pages[pagesJsonKey].extract || "";
 
   document.getElementById('article-link').href = "";
   let outLink = `https://en.wikipedia.org/wiki/${result.query.pages[pagesJsonKey].title}`;
