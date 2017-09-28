@@ -3,20 +3,21 @@ let dragTimer = 0;
 const canvas = d3.select("#network"),
   width = canvas.attr("width"),
   height = canvas.attr("height"),
-  r = 6,
+  r = 4,
   color = d3.scaleOrdinal(d3.schemeCategory10),
   ctx = canvas.node().getContext("2d");
 
    simulation = d3.forceSimulation()
     .force("x", d3.forceX(width/2)
-       .strength(25))
+       .strength(35))
     .force("y", d3.forceY(height/2)
-      .strength(25))
-    .force("collide", d3.forceCollide(r+4))
+      .strength(35))
+    .force("collide", d3.forceCollide(r+2))
     .force("charge", d3.forceManyBody()
       .strength(-50))
     .force("linkStrength", d3.forceLink()
-      .strength(50))
+      .strength(0.5))
+    .force("friction", d3.forceManyBody(1))
     .force("link", d3.forceLink()
       .id(function(d) { return d.name; }));
 
@@ -40,8 +41,9 @@ function data(graph) {
     canvas.height = window.innerHeight;
 
     simulation
-      .alpha(0.05)
-      .force("center", d3.forceCenter(width/2, height/2))
+      .alpha(0.1)
+      .force("center", d3.forceCenter(canvas.width/2, canvas.height/2))
+
       .force("x", d3.forceX(canvas.width/2))
       .force("y", d3.forceY(canvas.height/2));
 
