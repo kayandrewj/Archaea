@@ -41,7 +41,7 @@ function data(graph) {
     canvas.height = window.innerHeight;
 
     simulation
-      .alpha(0.1)
+      .alpha(0.4)
       .force("center", d3.forceCenter(canvas.width/2, canvas.height/2))
 
       .force("x", d3.forceX(canvas.width/2))
