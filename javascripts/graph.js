@@ -9,12 +9,12 @@ const canvas = d3.select("#network"),
 
    simulation = d3.forceSimulation()
     .force("x", d3.forceX(width/2)
-       .strength(35))
+       .strength(50))
     .force("y", d3.forceY(height/2)
-      .strength(35))
+      .strength(50))
     .force("collide", d3.forceCollide(r+4))
     .force("charge", d3.forceManyBody()
-      .strength(-50))
+      .strength(-100))
     .force("linkStrength", d3.forceLink()
       .strength(50))
     .force("link", d3.forceLink()
@@ -40,7 +40,7 @@ function data(graph) {
     canvas.height = window.innerHeight;
 
     simulation
-      .alpha(0.5)
+      .alpha(0.4)
       .force("center", d3.forceCenter(canvas.width/2, canvas.height/2))
 
       .force("x", d3.forceX(canvas.width/2))
